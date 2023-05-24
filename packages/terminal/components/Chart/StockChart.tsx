@@ -29,7 +29,7 @@ import {
   withDeviceRatio,
   withSize,
 } from "react-financial-charts";
-import { IOHLCData, withOHLCData } from "../../data";
+import { IOHLCData, withOHLCData, withUpdatingData } from "../../data";
 import { darkTheme, lightTheme } from "./theme";
 
 export interface StockChartStyle {
@@ -209,6 +209,8 @@ const StockChart = ({
         <MouseCoordinateY
           rectWidth={margin.right}
           displayFormat={pricesDisplayFormat}
+          fill={getColor("mouseCoordinate")}
+          textFill={getColor("mouseCoordinateText")}
         />
         <EdgeIndicator
           itemType="last"
@@ -285,7 +287,11 @@ const StockChart = ({
           strokeWidth={style.strokeWidth}
         />
 
-        <MouseCoordinateX displayFormat={timeDisplayFormat} />
+        <MouseCoordinateX
+          displayFormat={timeDisplayFormat}
+          fill={getColor("mouseCoordinate")}
+          textFill={getColor("mouseCoordinateText")}
+        />
         <MouseCoordinateY
           rectWidth={margin.right}
           displayFormat={pricesDisplayFormat}
@@ -309,6 +315,8 @@ const StockChart = ({
   );
 };
 
-export default withOHLCData()(
-  withSize({ style: { minHeight: 600 } })(withDeviceRatio()(StockChart))
+export default withOHLCData("MINUTES")(
+  withUpdatingData()(
+    withSize({ style: { minHeight: 600 } })(withDeviceRatio()(StockChart))
+  )
 );

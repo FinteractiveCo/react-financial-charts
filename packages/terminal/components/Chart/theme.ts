@@ -11,6 +11,8 @@ const darkTheme: any = {
   crossHairCursorColor: "#ffaa00",
   label: "#ffaa00",
   labelSecondary: "#ffffff",
+  mouseCoordinate: "#ffaa00",
+  mouseCoordinateText: "#000",
 };
 
 const lightTheme: any = {
@@ -23,6 +25,8 @@ const lightTheme: any = {
   crossHairCursorColor: "#666",
   label: "#ccc",
   labelSecondary: "#ffaa00",
+  mouseCoordinate: "#ffaa00",
+  mouseCoordinateText: "#000",
 };
 
 export { darkTheme, lightTheme };

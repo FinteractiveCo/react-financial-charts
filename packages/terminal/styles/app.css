@@ -4,7 +4,6 @@
 }
 
 body{
-    padding-bottom: 200px;
 }
 
 
@@ -25,10 +24,9 @@ body{
     height: 100%;
     position: absolute;
     top: 0;
-    transition: background-color 0.1s;
     width: 100%;
     z-index: 2;
-    background-color: #75839c; 
+    background-color: #333; 
   }
   .react-split__sash--disabled {
     pointer-events: none;

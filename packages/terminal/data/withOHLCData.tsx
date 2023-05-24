@@ -1,75 +1,70 @@
-import { tsvParse } from "d3-dsv";
-import { timeParse } from "d3-time-format";
-import * as React from "react";
+import { useEffect, useState } from "react";
 import { IOHLCData } from "./iOHLCData";
 
-const parseDate = timeParse("%Y-%m-%d");
+function generateRandomData(
+  dataLength = 100,
+  changeLastCandleTimes = 5,
+  time = new Date().getTime()
+) {
+  let data = [];
+  let open = Math.random() * 100;
 
-const parseData = () => {
-    return (d: any) => {
-        const date = parseDate(d.date);
-        if (date === null) {
-            d.date = new Date(Number(d.date));
-        } else {
-            d.date = new Date(date);
-        }
+  for (let i = 0; i < dataLength; i++) {
+    let close = open + Math.random() - 0.5;
+    let high = Math.max(open, close) + Math.random() / 5;
+    let low = Math.min(open, close) - Math.random() / 5;
+    let volume = Math.random() * 1000;
 
-        for (const key in d) {
-            if (key !== "date" && Object.prototype.hasOwnProperty.call(d, key)) {
-                d[key] = +d[key];
-            }
-        }
+    data.push({
+      date: new Date(time),
+      open: open,
+      close: close,
+      high: high,
+      low: low,
+      volume: volume,
+    });
 
-        return d as IOHLCData;
-    };
-};
+    time += 24 * 60 * 60 * 1000; // Increment by one day
+    open = close; // The next day's opening price is today's closing price
+  }
+
+  return data;
+}
 
 interface WithOHLCDataProps {
-    readonly data: IOHLCData[];
+  readonly data: IOHLCData[];
 }
 
 interface WithOHLCState {
-    data?: IOHLCData[];
-    message: string;
+  data?: IOHLCData[];
+  message: string;
+}
+
+function modifyLastCandle(data: IOHLCData[]) {
+  data[data.length - 1] = {
+    ...data[data.length - 1],
+    close: data[data.length - 1].close + Math.random() / 100 - 0.05,
+  };
+  return data;
 }
 
 export function withOHLCData(dataSet = "DAILY") {
-    return <TProps extends WithOHLCDataProps>(OriginalComponent: React.ComponentClass<TProps>) => {
-        return class WithOHLCData extends React.Component<Omit<TProps, "data">, WithOHLCState> {
-            public constructor(props: Omit<TProps, "data">) {
-                super(props);
+  return <TProps extends WithOHLCDataProps>(
+    OriginalComponent: React.ComponentType<TProps>
+  ) => {
+    const WithOHLCData: React.FC<Omit<TProps, "data">> = (props) => {
+      const [data, setData] = useState<IOHLCData[]>(
+        generateRandomData(1210, 20)
+      );
+      const [message, setMessage] = useState(`Loading ${dataSet} data...`);
 
-                this.state = {
-                    message: `Loading ${dataSet} data...`,
-                };
-            }
+      if (data === undefined) {
+        return <div className="center">{message}</div>;
+      }
 
-            public componentDidMount() {
-                fetch(
-                    `https://raw.githubusercontent.com/reactivemarkets/react-financial-charts/master/packages/stories/src/data/${dataSet}.tsv`,
-                )
-                    .then((response) => response.text())
-                    .then((data) => tsvParse(data, parseData()))
-                    .then((data) => {
-                        this.setState({
-                            data,
-                        });
-                    })
-                    .catch(() => {
-                        this.setState({
-                            message: `Failed to fetch data.`,
-                        });
-                    });
-            }
-
-            public render() {
-                const { data, message } = this.state;
-                if (data === undefined) {
-                    return <div className="center">{message}</div>;
-                }
-
-                return <OriginalComponent {...(this.props as TProps)} data={data} />;
-            }
-        };
+      return <OriginalComponent {...(props as TProps)} data={data} />;
     };
+
+    return WithOHLCData;
+  };
 }
