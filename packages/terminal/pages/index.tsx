@@ -1,4 +1,4 @@
-import { Button, Group } from "@mantine/core";
+import { Button, Divider, Group, Stack } from "@mantine/core";
 import Image from "next/image";
 import StockChart from "../components/Chart";
 import ThemeSwitch from "@/components/ThemeSwitch";
@@ -16,27 +16,27 @@ export default function About() {
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    padding: "1rem",
+    padding: "5px",
     minWidth: "400px",
   };
 
   return (
-    <>
-      <Group>
+    <Stack h={"100vh"} spacing={0}>
+      <Group p={"xs"}>
         <ThemeSwitch />
       </Group>
-
+      <Divider />
       <SplitPane
         split="vertical"
         sizes={sizes}
         onChange={setSizes}
-        resizerSize={1}
+        resizerSize={5}
       >
         <Pane minSize={400}>
           <SplitPane
             sizes={sizes1}
             onChange={setSizes1}
-            resizerSize={1}
+            resizerSize={5}
             split="horizontal"
           >
             <Pane minSize={400}>
@@ -56,7 +56,7 @@ export default function About() {
           <SplitPane
             sizes={sizes2}
             onChange={setSizes2}
-            resizerSize={1}
+            resizerSize={5}
             split="horizontal"
           >
             <Pane minSize={400}>
@@ -72,6 +72,6 @@ export default function About() {
           </SplitPane>
         </Pane>
       </SplitPane>
-    </>
+    </Stack>
   );
 }

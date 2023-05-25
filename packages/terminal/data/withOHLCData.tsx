@@ -54,7 +54,7 @@ export function withOHLCData(dataSet = "DAILY") {
   ) => {
     const WithOHLCData: React.FC<Omit<TProps, "data">> = (props) => {
       const [data, setData] = useState<IOHLCData[]>(
-        generateRandomData(1210, 20)
+        generateRandomData(120, 20)
       );
       const [message, setMessage] = useState(`Loading ${dataSet} data...`);
 

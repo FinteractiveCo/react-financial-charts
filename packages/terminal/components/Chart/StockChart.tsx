@@ -36,6 +36,7 @@ export interface StockChartStyle {
   readonly backgroundColor: string;
   readonly showGridLines: boolean;
   readonly strokeWidth: number;
+  readonly arrowWidth?: number;
 }
 
 export interface StockChartProps {
@@ -51,6 +52,7 @@ const defaultStyle: StockChartStyle = {
   backgroundColor: "#131722",
   showGridLines: false,
   strokeWidth: 0.5,
+  arrowWidth: 10,
 };
 
 const StockChart = ({
@@ -135,7 +137,7 @@ const StockChart = ({
 
   const gridHeight = height - margin.top - margin.bottom;
 
-  const elderRayHeight = 100;
+  const elderRayHeight = 123;
   const elderRayOrigin = (_: number, h: number) => [0, h - elderRayHeight];
   const barChartHeight = gridHeight / 4;
   const barChartOrigin = (_: number, h: number) => [
@@ -160,15 +162,14 @@ const StockChart = ({
       xExtents={xExtents}
       zoomAnchor={lastVisibleItemBasedZoomAnchor}
     >
-      <Chart
+      {/* <Chart
         id={2}
         height={barChartHeight}
         origin={barChartOrigin}
         yExtents={barChartExtents}
       >
         <BarSeries fillStyle={volumeColor} yAccessor={volumeSeries} />
-      </Chart>
-
+      </Chart> */}
       <Chart id={3} height={chartHeight} yExtents={candleChartExtents}>
         <XAxis
           showGridLines={style.showGridLines}
@@ -207,6 +208,7 @@ const StockChart = ({
           fillStyle={ema12.stroke()}
         />
         <MouseCoordinateY
+          arrowWidth={style.arrowWidth}
           rectWidth={margin.right}
           displayFormat={pricesDisplayFormat}
           fill={getColor("mouseCoordinate")}
@@ -219,6 +221,7 @@ const StockChart = ({
           lineStroke={openCloseColor}
           displayFormat={pricesDisplayFormat}
           yAccessor={yEdgeIndicator}
+          arrowWidth={style.arrowWidth}
         />
 
         <EdgeIndicator
@@ -228,6 +231,7 @@ const StockChart = ({
           lineStroke={ema12.stroke()}
           displayFormat={pricesDisplayFormat}
           yAccessor={ema12.accessor()}
+          arrowWidth={style.arrowWidth}
         />
         <EdgeIndicator
           itemType="last"
@@ -236,11 +240,13 @@ const StockChart = ({
           lineStroke={ema26.stroke()}
           displayFormat={pricesDisplayFormat}
           yAccessor={ema26.accessor()}
+          arrowWidth={style.arrowWidth}
         />
 
         <MovingAverageTooltip
           origin={[8, 24]}
           labelFill={getColor("labelSecondary")}
+          textFill={getColor("label")}
           options={[
             {
               yAccessor: ema26.accessor(),
@@ -294,6 +300,7 @@ const StockChart = ({
         />
         <MouseCoordinateY
           rectWidth={margin.right}
+          arrowWidth={style.arrowWidth}
           displayFormat={pricesDisplayFormat}
         />
 
