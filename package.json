@@ -36,7 +36,7 @@
     "release:pre": "lerna version --conventional-prerelease --yes",
     "release:grad": "lerna version --conventional-graduate --yes",
     "watch": "lerna run watch --parallel",
-    "start:next": "lerna run dev --scope='terminal' --stream"
+    "start:terminal": "lerna run dev --scope='terminal' --stream"
   },
   "workspaces": [
     "packages/*"
@@ -77,8 +77,8 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "rimraf": "^5.0.0",
     "source-map-loader": "^1.1.0",
-    "ts-loader": "^8.0.12",
-    "typescript": "5.0.4"
+    "ts-loader": "^8.4.0",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@react-financial-charts/annotations": "file:packages/annotations",

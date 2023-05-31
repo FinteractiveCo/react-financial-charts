@@ -162,14 +162,14 @@ const StockChart = ({
       xExtents={xExtents}
       zoomAnchor={lastVisibleItemBasedZoomAnchor}
     >
-      {/* <Chart
+      <Chart
         id={2}
         height={barChartHeight}
         origin={barChartOrigin}
         yExtents={barChartExtents}
       >
         <BarSeries fillStyle={volumeColor} yAccessor={volumeSeries} />
-      </Chart> */}
+      </Chart>
       <Chart id={3} height={chartHeight} yExtents={candleChartExtents}>
         <XAxis
           showGridLines={style.showGridLines}

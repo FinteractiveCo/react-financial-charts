@@ -26,6 +26,7 @@ body{
     top: 0;
     width: 100%;
     z-index: 20;
+    background-color: #303030;
   }
   .react-split__sash--disabled {
     pointer-events: none;

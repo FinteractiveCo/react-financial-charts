@@ -5,8 +5,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "main": "./src/index.ts",
+  "type": "module",
   "files": [
     "lib",
     "src"

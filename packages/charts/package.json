@@ -2,8 +2,7 @@
   "name": "react-financial-charts",
   "version": "2.0.1",
   "description": "React charts specific to finance.",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "main": "./src/index.ts",
   "files": [
     "lib",
     "src"
@@ -21,6 +20,7 @@
     "d3"
   ],
   "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/reactivemarkets/react-financial-charts.git"

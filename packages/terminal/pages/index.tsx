@@ -16,7 +16,6 @@ export default function About() {
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
-    padding: "5px",
     minWidth: "400px",
   };
 
@@ -30,13 +29,13 @@ export default function About() {
         split="vertical"
         sizes={sizes}
         onChange={setSizes}
-        resizerSize={5}
+        resizerSize={1}
       >
         <Pane minSize={400}>
           <SplitPane
             sizes={sizes1}
             onChange={setSizes1}
-            resizerSize={5}
+            resizerSize={1}
             split="horizontal"
           >
             <Pane minSize={400}>
@@ -56,7 +55,7 @@ export default function About() {
           <SplitPane
             sizes={sizes2}
             onChange={setSizes2}
-            resizerSize={5}
+            resizerSize={1}
             split="horizontal"
           >
             <Pane minSize={400}>
