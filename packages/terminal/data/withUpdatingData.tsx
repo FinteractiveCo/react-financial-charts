@@ -12,7 +12,7 @@ interface WithOHLCState {
 
 export function withUpdatingData(initialLength = 120, interval = 20) {
   return <TProps extends WithOHLCDataProps>(
-    OriginalComponent: React.ComponentClass<TProps>
+    OriginalComponent: React.ComponentType<TProps>
   ) => {
     return class WithOHLCData extends React.Component<TProps, WithOHLCState> {
       public interval?: number;

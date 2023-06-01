@@ -76,7 +76,6 @@ const styles: MantineThemeOverride = {
         textDecoration: "underline",
       },
     },
-
     body: {
       userSelect: "none",
       ...theme.fn.fontStyles(),
@@ -90,6 +89,18 @@ const styles: MantineThemeOverride = {
   }),
 
   components: {
+    Button: {
+      defaultProps: {
+        size: "xs",
+        radius: 0,
+      },
+    },
+    Select: {
+      defaultProps: {
+        size: "xs",
+        variant: "unstyled",
+      },
+    },
     Header: {
       styles: (theme, params: TitleStylesParams) => ({
         root: {
@@ -111,6 +122,19 @@ const styles: MantineThemeOverride = {
     },
     LoadingOverlay: {
       defaultProps: {},
+    },
+    MenuDropdown: {
+      styles: {
+        root: { border: 0 },
+      },
+    },
+    Menu: {
+      styles: {
+        root: { border: "0" },
+      },
+      defaultProps: {
+        border: 0,
+      },
     },
     Title: {
       styles: (theme, params: TitleStylesParams) => ({

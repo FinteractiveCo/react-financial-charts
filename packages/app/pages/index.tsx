@@ -1,11 +1,11 @@
 import { Button, Divider, Group, Stack } from "@mantine/core";
 import Image from "next/image";
-import StockChart from "../components/Chart";
+import { Terminal } from "charts-terminal";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import SplitPane, { Pane } from "split-pane-react";
 import { memo, useState } from "react";
 
-const Chart = memo(StockChart);
+const Chart = memo(Terminal);
 
 export default function About() {
   const [sizes, setSizes] = useState<(number | string)[]>(["50%", "auto"]);

@@ -1,6 +1,3 @@
-import { ColorScheme, useMantineColorScheme } from "@mantine/core";
-import { useColorScheme } from "@mantine/hooks";
-
 const darkTheme: any = {
   gridLinesStrokeStyle: "blue",
   strokeStyle: "#666",

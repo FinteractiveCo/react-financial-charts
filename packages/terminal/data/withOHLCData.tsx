@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IOHLCData } from "./iOHLCData";
+import React from "react";
 
 function generateRandomData(
   dataLength = 100,

@@ -36,7 +36,7 @@
     "release:pre": "lerna version --conventional-prerelease --yes",
     "release:grad": "lerna version --conventional-graduate --yes",
     "watch": "lerna run watch --parallel",
-    "start:terminal": "lerna run dev --scope='terminal' --stream"
+    "start:app": "lerna run dev --scope='app' --stream"
   },
   "workspaces": [
     "packages/*"

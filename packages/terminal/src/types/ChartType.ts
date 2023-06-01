@@ -1,0 +1,15 @@
+export enum ChartType {
+  "Bars" = "Bars",
+  "Candles" = "Candles",
+  "HollowCandles" = "HollowCandles",
+  "Columns" = "Columns",
+  "Line" = "Line",
+  "Area" = "Area",
+  "BaseLine" = "BaseLine",
+  "HeikinAshi" = "HeikinAshi",
+  "Renko" = "Renko",
+  "LineBreak" = "LineBreak",
+  "Kagi" = "Kagi",
+  "PointFigure" = "PointFigure",
+  "Range" = "Range",
+}

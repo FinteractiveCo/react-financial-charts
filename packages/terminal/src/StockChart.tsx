@@ -1,7 +1,6 @@
 import { format } from "d3-format";
-import { useMantineColorScheme, ActionIcon, Group, Text } from "@mantine/core";
+import { useMantineColorScheme } from "@mantine/core";
 import React, { useMemo, useState } from "react";
-import SplitPane, { Pane } from "split-pane-react";
 
 import { timeFormat } from "d3-time-format";
 import {
@@ -25,11 +24,10 @@ import {
   EdgeIndicator,
   MouseCoordinateX,
   MouseCoordinateY,
-  ZoomButtons,
   withDeviceRatio,
   withSize,
 } from "react-financial-charts";
-import { IOHLCData, withOHLCData, withUpdatingData } from "../../data";
+import { IOHLCData, withOHLCData, withUpdatingData } from "../data";
 import { darkTheme, lightTheme } from "./theme";
 
 export interface StockChartStyle {
@@ -55,14 +53,14 @@ const defaultStyle: StockChartStyle = {
   arrowWidth: 10,
 };
 
-const StockChart = ({
+const ChartRenderer = ({
   data: initialData,
   dateTimeFormat = "%d %b",
   height,
   ratio,
   width,
   style = defaultStyle,
-}: StockChartProps) => {
+}: StockChartProps): React.ReactElement<StockChartProps> => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [sizes, setSizes] = useState([100, "30%", "auto"]);
 
@@ -322,8 +320,10 @@ const StockChart = ({
   );
 };
 
-export default withOHLCData("MINUTES")(
+const ChartRenderer_ = withOHLCData("MINUTES")(
   withUpdatingData()(
-    withSize({ style: { minHeight: 600 } })(withDeviceRatio()(StockChart))
+    withSize({ style: { minHeight: 600 } })(withDeviceRatio()(ChartRenderer))
   )
 );
+
+export default ChartRenderer_;

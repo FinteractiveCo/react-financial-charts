@@ -12,6 +12,7 @@ withTM = require("next-transpile-modules")([
   "@react-financial-charts/interactive",
   "@react-financial-charts/annotations",
   "@react-financial-charts/utils",
+  "charts-terminal",
 ]);
 
 module.exports = withTM();
