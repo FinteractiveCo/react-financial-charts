@@ -17,6 +17,7 @@
     "@mantine/next": "^6.0.11",
     "@mantine/notifications": "^6.0.11",
     "@tabler/icons": "^1.119.0",
+    "datacenter-js-client": "github:FinteractiveCo/datacenter-js-client",
     "eslint": "8.41.0",
     "eslint-config-next": "12.1.2",
     "next": "12.1.2",
