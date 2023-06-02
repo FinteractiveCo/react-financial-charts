@@ -21,13 +21,9 @@
     "clean:packages": "lerna run clean",
     "clean:modules": "lerna clean --yes",
     "convert": "run-s link bootstrap",
-    "docs": "run-s build docs:stories",
-    "docs:stories": "lerna run docs --stream",
     "link": "lerna link convert",
     "lint": "eslint . --ext ts --ext tsx --quiet",
     "lint:fix": "eslint . --ext ts --ext tsx --quiet --fix",
-    "start": "run-p watch start:stories",
-    "start:stories": "lerna run start --stream",
     "test": "lerna run test --stream",
     "prestart": "npm run build",
     "prepublishOnly": "npm run build",
@@ -36,18 +32,13 @@
     "release:pre": "lerna version --conventional-prerelease --yes",
     "release:grad": "lerna version --conventional-graduate --yes",
     "watch": "lerna run watch --parallel",
-    "start:app": "lerna run dev --scope='app' --stream"
+    "dev": "lerna run dev --scope='app' --stream"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "@babel/core": "^7.13.1",
-    "@storybook/addon-actions": "^6.1.20",
-    "@storybook/addon-docs": "^6.1.20",
-    "@storybook/addon-essentials": "^6.1.20",
-    "@storybook/react": "^6.1.20",
-    "@storybook/theming": "^6.1.20",
     "@types/d3-array": "^2.9.0",
     "@types/d3-dsv": "^2.0.1",
     "@types/d3-force": "^2.1.1",
@@ -89,7 +80,6 @@
     "@react-financial-charts/interactive": "file:packages/interactive",
     "@react-financial-charts/scales": "file:packages/scales",
     "@react-financial-charts/series": "file:packages/series",
-    "@react-financial-charts/stories": "file:packages/stories",
     "@react-financial-charts/tooltip": "file:packages/tooltip",
     "@react-financial-charts/utils": "file:packages/utils",
     "next-transpile-modules": "^10.0.0",
