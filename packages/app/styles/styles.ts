@@ -130,6 +130,7 @@ const styles: MantineThemeOverride = {
     },
     Menu: {
       styles: {
+        border: 0,
         root: { border: "0" },
       },
       defaultProps: {

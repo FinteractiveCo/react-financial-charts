@@ -16,7 +16,9 @@ const ChartTypePicker = ({}) => {
 
       <Menu.Dropdown>
         {Object.values(ChartType).map((key, index) => (
-          <Menu.Item onClick={() => setChartType(key)}>{key}</Menu.Item>
+          <Menu.Item key={key} onClick={() => setChartType(key)}>
+            {key}
+          </Menu.Item>
         ))}
       </Menu.Dropdown>
     </Menu>

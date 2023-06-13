@@ -1,12 +1,15 @@
 import { Divider, Group, Select, Stack } from "@mantine/core";
-import ChartRenderer_ from "./StockChart";
+import ChartRenderer from "./StockChart";
 import React from "react";
-import TimeFrame from "./Components/Timeframe";
+import TimeFramePicker from "./Components/TimeFramePicker";
 import ChartTypePicker from "./Components/ChartTypePicker";
+import { withData } from "./Datafeed";
+
+const Chart = withData("D1", "EURUSD")(ChartRenderer);
 
 const Terminal = ({}): React.ReactElement<any> => {
   return (
-    <Stack h={"100%"}>
+    <Stack h={"100%"} spacing={0}>
       <Group spacing={0}>
         <Select
           placeholder="Pick one"
@@ -16,11 +19,11 @@ const Terminal = ({}): React.ReactElement<any> => {
           data={["EURUSD", "Angular", "Svelte", "Vue"]}
         />
         <Divider orientation="vertical" />
-        <TimeFrame />
+        <TimeFramePicker />
         <Divider orientation="vertical" />
         <ChartTypePicker />
       </Group>
-      <ChartRenderer_ />
+      <Chart />
     </Stack>
   );
 };
