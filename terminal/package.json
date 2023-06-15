@@ -1,14 +1,14 @@
 {
-  "name": "react-financial-charts",
-  "version": "2.0.1",
+  "name": "terminal",
+  "version": "1.0.0",
   "description": "React charts specific to finance.",
   "main": "./src/index.ts",
+  "homepage": "./",
   "files": [
-    "lib",
     "src"
   ],
   "sideEffects": false,
-  "author": "reactivemarkets",
+  "author": "finteractive",
   "keywords": [
     "charts",
     "charting",
@@ -20,20 +20,30 @@
     "d3"
   ],
   "license": "MIT",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/reactivemarkets/react-financial-charts.git"
-  },
-  "bugs": {
-    "url": "https://github.com/reactivemarkets/react-financial-charts/issues"
-  },
   "scripts": {
-    "build": "npm run clean && npm run compile",
+    "dev": "BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "test": "echo Skipped for now.",
+    "eject": "react-scripts eject",
     "clean": "rimraf lib",
     "compile": "tsc -p tsconfig.json"
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@mantine/core": "^6.0.13",
+    "@mantine/hooks": "^6.0.13",
     "@react-financial-charts/annotations": "file:../annotations",
     "@react-financial-charts/axes": "file:../axes",
     "@react-financial-charts/coordinates": "file:../coordinates",
@@ -42,10 +52,17 @@
     "@react-financial-charts/interactive": "file:../interactive",
     "@react-financial-charts/scales": "file:../scales",
     "@react-financial-charts/series": "file:../series",
-    "@react-financial-charts/tooltip": "file:../tooltip"
+    "@react-financial-charts/tooltip": "file:../tooltip",
+    "@tabler/icons": "^1.119.0",
+    "datacenter-js-client": "git+https://github.com/FinteractiveCo/datacenter-js-client.git",
+    "react-scripts": "^4.0.3",
+    "react-virtualized-auto-sizer": "^1.0.20"
   },
   "peerDependencies": {
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
+  },
+  "optionalDependencies": {
+    "babel-loader": "8.1.0"
   }
 }

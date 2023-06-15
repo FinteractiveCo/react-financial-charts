@@ -32,11 +32,19 @@
     "release:pre": "lerna version --conventional-prerelease --yes",
     "release:grad": "lerna version --conventional-graduate --yes",
     "watch": "lerna run watch --parallel",
-    "dev": "lerna run dev --scope='app' --stream"
+    "dev": "lerna run dev --scope='terminal' --stream"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/electron-builder",
+      "**/electron-builder/**",
+      "**/electron-webpack",
+      "**/electron-webpack/**"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.13.1",
     "@types/d3-array": "^2.9.0",
@@ -53,10 +61,8 @@
     "@types/node": "20.2.3",
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.2",
-    "@typescript-eslint/eslint-plugin": "^5.59.5",
-    "@typescript-eslint/parser": "^5.59.5",
     "babel-loader": "^8.2.2",
-    "eslint": "^8.40.0",
+    "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
@@ -72,6 +78,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@jridgewell/source-map": "^0.3.3",
     "@react-financial-charts/annotations": "file:packages/annotations",
     "@react-financial-charts/axes": "file:packages/axes",
     "@react-financial-charts/coordinates": "file:packages/coordinates",
@@ -81,10 +88,13 @@
     "@react-financial-charts/scales": "file:packages/scales",
     "@react-financial-charts/series": "file:packages/series",
     "@react-financial-charts/tooltip": "file:packages/tooltip",
-    "@react-financial-charts/utils": "file:packages/utils",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
     "next-transpile-modules": "^10.0.0",
     "react": "17.0.2",
+    "react-dev-utils": "^12.0.1",
     "react-dom": "17.0.2",
-    "react-financial-charts": "file:packages/charts"
+    "react-financial-charts": "file:packages/charts",
+    "worker-rpc": "^0.2.0"
   }
 }

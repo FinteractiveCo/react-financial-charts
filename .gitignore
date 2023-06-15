@@ -73,3 +73,6 @@ dump.rdb
  build/**
  dist/**
  .next/**
+
+packages/terminal/build/**
+packages/terminal/.next/**

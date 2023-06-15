@@ -195,9 +195,7 @@ function yDomainFromYExtents(yExtents: any, yScale: any, plotData: any[]) {
 
     const allYValues: number[] = flattenDeep(yValues);
 
-    const realYDomain = yScale.invert ? (extent(allYValues) as [number, number]) : [...new Set(allYValues).values()];
-
-    return realYDomain;
+    return yScale.invert ? (extent(allYValues) as [number, number]) : [...new Set(allYValues).values()];
 }
 
 export function getChartConfigWithUpdatedYScales(
