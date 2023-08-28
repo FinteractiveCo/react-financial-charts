@@ -1,9 +1,4 @@
-import {
-  createStyles,
-  MantineThemeOverride,
-  ModalBodyProps,
-  TitleStylesParams,
-} from "@mantine/core";
+import { MantineThemeOverride } from "@mantine/core";
 
 export const fontFamilyMonospace = "Monaco, Courier, monospace";
 export const fontFamily = "Inter, sans-serif";
@@ -102,7 +97,7 @@ const styles: MantineThemeOverride = {
       },
     },
     Header: {
-      styles: (theme, params: TitleStylesParams) => ({
+      styles: (theme) => ({
         root: {
           backgroundColor:
             theme.colorScheme === "dark"
@@ -110,14 +105,6 @@ const styles: MantineThemeOverride = {
               : theme.fn.rgba(theme.white, 0.2),
           backdropFilter: "blur(5px)",
         },
-      }),
-    },
-    Modal: {
-      styles: (theme, params: ModalBodyProps) => ({
-        /*modal: {
-                    maxWidth: '95vw',
-                    maxHeight: '95vh'
-                }*/
       }),
     },
     LoadingOverlay: {
@@ -130,7 +117,6 @@ const styles: MantineThemeOverride = {
     },
     Menu: {
       styles: {
-        border: 0,
         root: { border: "0" },
       },
       defaultProps: {
@@ -138,7 +124,7 @@ const styles: MantineThemeOverride = {
       },
     },
     Title: {
-      styles: (theme, params: TitleStylesParams) => ({
+      styles: (theme) => ({
         root: {
           color: theme.colorScheme === "dark" ? theme.white : theme.black,
           fontWeight: 500,

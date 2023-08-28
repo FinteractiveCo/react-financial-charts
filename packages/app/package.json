@@ -2,28 +2,51 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@emotion/server": "^11.11.0",
-    "@mantine/core": "^6.0.11",
-    "@mantine/hooks": "^6.0.11",
-    "@mantine/modals": "^6.0.11",
-    "@mantine/next": "^6.0.11",
-    "@mantine/notifications": "^6.0.11",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "@emotion/react": "^11.11.1",
+    "@mantine/core": "^6.0.13",
+    "@mantine/hooks": "^6.0.13",
+    "@react-financial-charts/annotations": "file:../annotations",
+    "@react-financial-charts/axes": "file:../axes",
+    "@react-financial-charts/coordinates": "file:../coordinates",
+    "@react-financial-charts/core": "file:../core",
+    "@react-financial-charts/indicators": "file:../indicators",
+    "@react-financial-charts/interactive": "file:../interactive",
+    "@react-financial-charts/scales": "file:../scales",
+    "@react-financial-charts/series": "file:../series",
+    "@react-financial-charts/tooltip": "file:../tooltip",
     "@tabler/icons": "^1.119.0",
-    "datacenter-js-client": "github:FinteractiveCo/datacenter-js-client",
-    "eslint": "8.41.0",
-    "eslint-config-next": "12.1.2",
-    "next": "12.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "charts-terminal": "file:../terminal",
-    "split-pane-react": "^0.1.3"
+    "datacenter-js-client": "git+https://github.com/FinteractiveCo/datacenter-js-client.git",
+    "react-virtualized-auto-sizer": "^1.0.20"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
